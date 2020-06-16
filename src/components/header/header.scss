@@ -1,0 +1,48 @@
+@import '../../styles/abstracts/variables';
+
+.header {
+  background-color: $color-black;
+  border-radius: 4px;
+  height: 64px;
+
+  & > .container {
+    max-height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 14px;
+    max-height: 100%;
+  }
+
+  &__nav {
+    margin-left: 63px;
+  }
+
+  &__search {
+    flex: 0 0 442px;
+    margin-left: auto;
+    margin-right: 35px;
+  }
+
+  &__cart {
+    color: #ffffff;
+    font-size: 24px;
+  }
+
+  &__user {
+    margin-right: 24px;
+
+    .img {
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter, Switch } from 'react-router-dom';
+import {withRouter, Switch, Route} from 'react-router-dom';
 import { Main } from '../containers';
 
 const defaultProps = {
@@ -16,7 +16,7 @@ const Router = ({
 }) => {
   return (
     <Switch>
-      <Main history={history}/>
+      <Main history={history} />
     </Switch>
   );
 };

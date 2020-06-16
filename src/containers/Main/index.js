@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchData } from 'redux/actions';
+import { fetchData } from '../../redux/actions';
+import {default as MainContainer} from "../../components/main";
 
 const defaultProps = {
   history: {},
@@ -18,12 +19,12 @@ const Main = ({
   cartData,
   fetchData,
 }) => {
-  console.log('main', cartData)
+  console.log('main', cartData);
   if (!cartData) {
     fetchData({
       shippingOptions: {
         destination: 'New York',
-        partner: 'Dachser'
+        partner: 'Dachser',
       },
       subtotal: 29410,
       deposit: 1684,
@@ -40,9 +41,9 @@ const Main = ({
           attributes: {
             general: {
               packaging: 'Factory Sealed',
-              operatorLock: 'Verizon'
-            }
-          }
+              operatorLock: 'Verizon',
+            },
+          },
         },
         {
           id: 234,
@@ -55,9 +56,9 @@ const Main = ({
           attributes: {
             general: {
               packaging: 'New in Box',
-              operatorLock: 'Unlocked'
-            }
-          }
+              operatorLock: 'Unlocked',
+            },
+          },
         },
         {
           id: 456,
@@ -70,20 +71,17 @@ const Main = ({
           freightCharges: 1684,
           attributes: {
             general: {
-              packaging: 'Factory Sealed'
-            }
-          }
+              packaging: 'Factory Sealed',
+            },
+          },
         },
-      ]
+      ],
     });
   }
 
   return (
     <React.Fragment>
-      <div>Hello World !</div>
-      {!!cartData &&
-        <pre>{JSON.stringify(cartData)}</pre>
-      }
+      {cartData && <MainContainer {...cartData}/>}
     </React.Fragment>
   );
 };
@@ -92,13 +90,13 @@ const Main = ({
 const mapStateToProps = ({
   testReducer: {
     cartData,
-  }
+  },
 }) => ({
   cartData,
 });
 
 const mapDisptachToProps = {
-  fetchData: fetchData,
+  fetchData,
 };
 
 Main.defaultProps = defaultProps;

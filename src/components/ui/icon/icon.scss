@@ -1,0 +1,12 @@
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 1;
+  width: 1em;
+  height: 1em;
+
+  & > svg {
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import reducer from 'redux/reducers';
+import reducer from './redux/reducers';
 
 const init = (store) => {
   return store;

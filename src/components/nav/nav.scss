@@ -1,0 +1,26 @@
+@import '../../styles/abstracts/variables';
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    &:not(:first-child){
+      margin-left: 24px;
+    }
+  }
+
+  &__link {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: $color-white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

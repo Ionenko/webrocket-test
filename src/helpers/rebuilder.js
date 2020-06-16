@@ -63,6 +63,50 @@ const rebuildAdditionalInfoCart = (item) => {
   }));
 };
 
+const groupBy = ({ Group: array, By: props }) => {
+  const getGroupedItems = (item) => {
+    const returnArray = [];
+    for (let i = 0; i < props.length; i++) {
+      returnArray.push(item[props[i]]);
+    }
+
+    return returnArray;
+  };
+
+  const groups = {};
+
+  for (let i = 0; i < array.length; i++) {
+    const arrayRecord = array[i];
+    const group = JSON.stringify(getGroupedItems(arrayRecord));
+    groups[group] = groups[group] || [];
+    groups[group].push(arrayRecord);
+  }
+
+  const objects = [];
+
+
+  Object.keys(groups).map((key) => {
+    const obj = {};
+    obj.items = groups[key];
+
+    const values = JSON.parse(key);
+
+    values.forEach((item, index) => {
+      obj[props[index]] = values[index];
+    });
+
+    objects.push(obj);
+  });
+
+  return objects;
+};
+
+const rebuildFreightInformation = (collection) => {
+  const groupByProperties = ['locationArea', 'freightType'];
+
+  return groupBy({Group: collection, By: groupByProperties});
+};
+
 const testIsUpperLetter = letter => letter === letter.toUpperCase();
 
 export {
@@ -71,4 +115,5 @@ export {
   rebuildInventoriesToPrices,
   rebuildObjectNameToString,
   rebuildAdditionalInfoCart,
+  rebuildFreightInformation,
 };

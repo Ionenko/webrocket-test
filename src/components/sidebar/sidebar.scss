@@ -1,0 +1,180 @@
+@import '../../styles/abstracts/variables';
+
+.sidebar {
+  flex: 0 0 334px;
+
+  $sidebar: &;
+
+  &__block {
+    padding: 18px 13px;
+    border-radius: 4px;
+
+    &_light {
+      background-color: $color-grey-lighter;
+      color: $color-black;
+
+      #{$sidebar} {
+        &__list {
+          color: $color-grey-dark;
+        }
+
+        &__price {
+          color: $color-black;
+        }
+      }
+    }
+
+    &_dark {
+      background-color: $color-black;
+      color: $color-white;
+
+      #{$sidebar} {
+        &__list {
+          color: $color-white;
+        }
+
+        &__price {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  &__subheading {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 9px;
+  }
+
+  &__heading {
+
+    &:not(:last-child){
+      margin-bottom: 23px;
+    }
+  }
+
+  &__item {
+    margin: 0 0 12px;
+
+    &_offset_lg {
+      margin-top: 70px;
+
+      .sidebar__heading {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__list {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+
+    &:not(:last-child) {
+      margin-bottom: 13px;
+    }
+
+    li {
+      vertical-align: middle;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+
+      & > .label {
+        vertical-align: middle;
+        line-height: 1;
+        text-transform: uppercase;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__prices {
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -0.005em;
+
+    &_total {
+      font-size: 2.2rem;
+      line-height: 2.6rem;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+
+      .icon {
+        margin-left: 6px;
+        vertical-align: middle;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &__note {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    font-style: italic;
+  }
+
+  &__head {
+    padding-top: 4px;
+    margin-bottom: 17px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid $color-grey-dark-2;
+  }
+
+  &__footer {
+    margin-top: 14px;
+    padding-top: 15px;
+    border-top: 1px solid $color-grey-dark-2;
+  }
+
+  &__total {
+    margin-bottom: 15px;
+    min-height: 83px;
+
+    & + .sidebar__prices {
+      li:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  &__btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  &__links {
+    li {
+      vertical-align: middle;
+      font-size: 1.6rem;
+      line-height: 2.3rem;
+      color: $color-red;
+
+      &:not(:last-child){
+        margin: 0 0 11px;
+      }
+
+      & > .icon {
+        vertical-align: middle;
+        margin-right: 4px;
+      }
+
+      a {
+        text-decoration: none;
+        color: currentColor;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

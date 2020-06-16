@@ -1,0 +1,34 @@
+@import '../../../styles/abstracts/variables';
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  padding: 1px 4px;
+  border-radius: 2px;
+  background-color: $color-white;
+  border: 1px solid $color-black;
+
+  &_variant {
+    &_primary {
+      background-color: $color-green;
+      border-color: $color-green;
+      color: #ffffff;
+    }
+
+    &_secondary {
+      background-color: $color-red;
+      border-color: $color-red;
+      color: #ffffff;
+    }
+
+    &_gray {
+      background-color: $color-grey-dark;
+      border-color: $color-grey-dark;
+      color: #ffffff;
+    }
+  }
+}
