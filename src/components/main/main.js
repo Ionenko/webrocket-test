@@ -25,7 +25,7 @@ const DropdownIndicator = props => {
   );
 };
 
-const Main = ({cartLines, shippingOptions, subtotal, deposit}) => {
+const Main = ({cartLines, subtotal, deposit}) => {
 
   return (
     <div className="wrapper">

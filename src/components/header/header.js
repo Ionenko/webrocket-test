@@ -17,7 +17,7 @@ const navLinks = () => [
   {text: 'Features', path: 'features'},
 ];
 
-const Header = (props) => {
+const Header = () => {
   const links = navLinks();
 
   return (

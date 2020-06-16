@@ -1,5 +1,6 @@
 import {
   FETCH_DATA,
+  DELETE_ITEM,
 } from '../types';
 
 const fetchData = value => ({
@@ -7,6 +8,12 @@ const fetchData = value => ({
   payload: value,
 });
 
+const deleteItem = id => ({
+  type: DELETE_ITEM,
+  payload: id,
+});
+
 export {
   fetchData,
+  deleteItem,
 };

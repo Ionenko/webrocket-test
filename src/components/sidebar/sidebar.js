@@ -28,7 +28,7 @@ const Sidebar = ({data, subtotal, deposit}) => {
               <p>Freight Information</p>
             </Heading>
             {
-              freightData.map(obj => (
+              freightData.length > 0 ? freightData.map(obj => (
                 <Fragment key={obj.locationArea + obj.freightType}>
                   <p className={s('subheading')}>
                     {getHeadingString(obj.freightType)}
@@ -45,7 +45,7 @@ const Sidebar = ({data, subtotal, deposit}) => {
                       }
                   </ul>
                 </Fragment>
-              ))
+              )) : (<div>Empty</div>)
             }
             <div className={s('footer')}>
               <ul className={s('prices')}>

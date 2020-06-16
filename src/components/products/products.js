@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import block from 'bem-cn-lite';
 import './products.scss';
 import Product from '../product';
@@ -19,9 +19,9 @@ const Products = ({items}) => (
     </div>
     <div className={p('body')}>
       {
-          items && items.map(item => (
+          items.length > 0 ? items.map(item => (
             <Product key={item.id} data={item} />
-          ))
+          )) : ('Empty')
         }
     </div>
   </div>

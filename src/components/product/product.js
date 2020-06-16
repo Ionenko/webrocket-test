@@ -6,10 +6,12 @@ import Icon from '../ui/icon';
 import Button from '../ui/button';
 import InputNumeric from '../ui/input-numeric';
 import {formatPrice} from '../../helpers/numberUtils';
+import {connect} from "react-redux";
+import {deleteItem} from "../../redux/test/actions";
 
 const p = block('product');
 
-const Product = ({data}) => {
+const Product = ({data, deleteItem}) => {
   const {
     id,
     deliveryTime,
@@ -39,7 +41,7 @@ const Product = ({data}) => {
   }
 
   function handleDelete() {
-    console.log('delete', id);
+    deleteItem(id);
   }
 
   return (
@@ -105,4 +107,8 @@ const Product = ({data}) => {
   );
 };
 
-export default Product;
+const mapDispatchToProps = {
+  deleteItem,
+};
+
+export default connect(null, mapDispatchToProps)(Product);

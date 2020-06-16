@@ -19,7 +19,6 @@ const Main = ({
   cartData,
   fetchData,
 }) => {
-  console.log('main', cartData);
   if (!cartData) {
     fetchData({
       shippingOptions: {
@@ -81,7 +80,7 @@ const Main = ({
 
   return (
     <React.Fragment>
-      {cartData && <MainContainer {...cartData}/>}
+      {cartData && <MainContainer {...cartData} />}
     </React.Fragment>
   );
 };
@@ -95,11 +94,11 @@ const mapStateToProps = ({
   cartData,
 });
 
-const mapDisptachToProps = {
+const mapDispatchToProps = {
   fetchData,
 };
 
 Main.defaultProps = defaultProps;
 Main.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDisptachToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

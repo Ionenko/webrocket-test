@@ -82,10 +82,7 @@ const groupBy = ({ Group: array, By: props }) => {
     groups[group].push(arrayRecord);
   }
 
-  const objects = [];
-
-
-  Object.keys(groups).map((key) => {
+  return Object.keys(groups).map((key) => {
     const obj = {};
     obj.items = groups[key];
 
@@ -95,10 +92,8 @@ const groupBy = ({ Group: array, By: props }) => {
       obj[props[index]] = values[index];
     });
 
-    objects.push(obj);
+    return obj;
   });
-
-  return objects;
 };
 
 const rebuildFreightInformation = (collection) => {
@@ -116,4 +111,5 @@ export {
   rebuildObjectNameToString,
   rebuildAdditionalInfoCart,
   rebuildFreightInformation,
+  testIsUpperLetter,
 };
