@@ -1,41 +1,40 @@
 import React, {useEffect, useState} from 'react';
 import block from 'bem-cn-lite';
 import './product.scss';
-import * as NumericInput from "react-numeric-input";
 import Label from '../ui/label';
-import Badge from "../ui/badge";
-import Icon from "../ui/icon";
-import Button from "../ui/button";
-import InputNumeric from "../ui/input-numeric";
-import {formatPrice} from "../../helpers/numberUtils";
+import Icon from '../ui/icon';
+import Button from '../ui/button';
+import InputNumeric from '../ui/input-numeric';
+import {formatPrice} from '../../helpers/numberUtils';
 
 const p = block('product');
 
-const Product = ({
-  id,
-  deliveryTime,
-  freightType,
-  imgUrl,
-  locationArea,
-  title,
-  unitPrice,
- attributes: {
-    general: {
-      operatorLock,
-      packaging,
+const Product = ({data}) => {
+  const {
+    id,
+    deliveryTime,
+    freightType,
+    imgUrl,
+    locationArea,
+    title,
+    unitPrice,
+    freightCharges,
+    attributes: {
+      general: {
+        operatorLock,
+        packaging,
+      },
     },
-  },
-}) => {
+  } = data;
+
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(count * unitPrice);
-  const [fcPrice, setFcPrice] = useState(totalPrice * 0.1);
 
   useEffect(() => {
     setTotalPrice(count * unitPrice);
-    setFcPrice(totalPrice * 0.1);
   }, [count, totalPrice]);
 
-  function handleChange(value){
+  function handleChange(value) {
     setCount(value);
   }
 
@@ -55,10 +54,13 @@ const Product = ({
             <div className={p('labels')}>
               {packaging && <Label>{packaging}</Label>}
               {
-                operatorLock && <Label variant={
-                operatorLock.toLowerCase() === 'unlocked' ? 'primary' : 'secondary'}>
+                operatorLock && (
+                <Label variant={
+                operatorLock.toLowerCase() === 'unlocked' ? 'primary' : 'secondary'}
+                >
                   {operatorLock}
                 </Label>
+                )
               }
             </div>
           </div>
@@ -67,7 +69,9 @@ const Product = ({
         <div className={p('quantity', 'products__cell')}>
           <InputNumeric onChange={handleChange} min={1} max={100} value={count} />
         </div>
-        <div className={p('avg-price', 'products__cell')}>{formatPrice(unitPrice)}/unit</div>
+        <div className={p('avg-price', 'products__cell')}>
+          {formatPrice(unitPrice)}/unit
+        </div>
         <div className={p('total', 'products__cell')}><strong>{formatPrice(totalPrice)}</strong></div>
         <div className={p('action', 'products__cell')}>
           <Button className={p('delete')} onClick={handleDelete} icon tag="span">
@@ -78,9 +82,20 @@ const Product = ({
       <div className={p('bottom', 'products__row')}>
         <div className={p('details', 'products__cell')}>
           <ul>
-            <li><span>Freight Type:</span> {freightType}</li>
-            <li><span>Est Delivery Time: </span>{deliveryTime}</li>
-            {/*<li><span>Freight Charges:</span> {fcPrice}</li>*/}
+            <li>
+              <span>Freight Type: </span>
+              {freightType}
+            </li>
+            <li>
+              <span>Est Delivery Time: </span>
+              {deliveryTime}
+            </li>
+            {freightCharges && (
+              <li>
+                <span>Freight Charges: </span>
+                {formatPrice(freightCharges)}
+              </li>
+            )}
           </ul>
         </div>
       </div>

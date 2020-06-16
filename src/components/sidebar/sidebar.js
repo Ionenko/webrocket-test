@@ -67,8 +67,6 @@ const Sidebar = ({data, subtotal, deposit}) => {
                 </li>
                 <li>
                   <span>
-
-
                     Deposit:
                     <Icon size="14px" color="#FF5247" data-tip data-for="depositInfo" icon="info" />
                     <ReactTooltip className="tooltip" id="depositInfo">

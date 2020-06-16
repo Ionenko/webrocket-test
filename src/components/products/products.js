@@ -20,7 +20,7 @@ const Products = ({items}) => (
     <div className={p('body')}>
       {
           items && items.map(item => (
-            <Product key={item.id} {...item} />
+            <Product key={item.id} data={item} />
           ))
         }
     </div>
