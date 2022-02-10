@@ -6,7 +6,7 @@
     "@babel/polyfill": "^7.4.4",
     "bem-cn-lite": "^4.0.0",
     "history": "^4.7.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "numeral": "^2.0.6",
     "prop-types": "^15.6.2",
     "react": "^16.9.0",
